@@ -5,6 +5,7 @@ adminPanel::adminPanel(User* admin,QWidget *parent)
 {
 	ui.setupUi(this);
 	this->admin = admin;
+	
 }
 
 adminPanel::~adminPanel()

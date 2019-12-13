@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="courses.csv" />
+    <None Include="Students.csv" />
     <None Include="users.csv" />
   </ItemGroup>
   <ItemGroup>

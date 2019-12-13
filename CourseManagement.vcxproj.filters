@@ -86,6 +86,7 @@
   <ItemGroup>
     <None Include="users.csv" />
     <None Include="courses.csv" />
+    <None Include="Students.csv" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h">
