@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 #include "Student.h"
-
+#include <qtreewidget.h>
 using namespace std;
 class Course
 {
@@ -15,5 +15,7 @@ class Course
 	vector<Student*> GetStudents();
 	static vector<string> GetCoursesLines();
 	static vector<Course*> LoadCourses();
+	static vector<QTreeWidgetItem*> CreateTree(vector<Course*> Courses);
+	
 };
 
