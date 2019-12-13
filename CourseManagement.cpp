@@ -14,7 +14,6 @@ CourseManagement::CourseManagement(QWidget *parent)
 }
 void CourseManagement::on_pushButton_clicked() {
 	string username = ui.lineEdit->text().toStdString();
-	transform(username.begin(), username.end(), username.begin(), ::tolower);
 	string password = ui.lineEdit_2->text().toStdString();
 	auto user = Database::GetUserByUsername(username);
 	if (user == nullptr)
