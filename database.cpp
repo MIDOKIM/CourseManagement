@@ -1,8 +1,8 @@
 #include "Database.h"
 #include "CSVFile.h"
-vector<Course> Database::Courses; // to prevent linking error
-vector<User> Database::Users; 
-vector<Student> Database::Students; 
+vector<Course*> Database::Courses; // to prevent linking error
+vector<User*> Database::Users; 
+vector<Student*> Database::Students; 
 Database::Database()
 {
 }
@@ -21,81 +21,78 @@ void Database::load()
 	Database::Students = Student::LoadStudents();
 
 }
-Course Database::GetCourse(string courseID) //farah
+Course* Database::GetCourse(string courseID) //farah
 {
-	Course c;
 	for (int i = 0; i < Courses.size(); i++)
 	{
-		if (courseID == Courses[i].Code) {
+		if (courseID == Courses[i]->Code) {
 			
 			return Courses[i];
 		}
 	}
-	
+	return nullptr;
 	
 }
 void Database::AddStudent(int ID,int Year,vector<string> FCourses,vector<string>CinProgress)
 {
-	Student s(ID);
-	s.Academicyear = Year;
-	s.FinishedCourses = FCourses;
-	s.CoursesInProgress = CinProgress;
+	Student* s = new Student(ID);
+	s->Academicyear = Year;
+	s->FinishedCourses = FCourses;
+	s->CoursesInProgress = CinProgress;
 	Students.push_back(s);
 
 }
 void Database::AddCourse(string id,string name,int num,int hours,vector<string> prc)
 {
-	Course c;
-	c.Code = id;
-	c.Hours = hours;
-	c.Name = name;
-	c.MaxNumOfStudents = num;
-	c.PreRequiredCourses = prc;
+	Course* c = new Course();
+	c->Code = id;
+	c->Hours = hours;
+	c->Name = name;
+	c->MaxNumOfStudents = num;
+	c->PreRequiredCourses = prc;
 	Courses.push_back(c);
 }
-User Database::GetUserByID(int userID)
+User* Database::GetUserByID(int userID)
 {
 	for (int i = 0; i < Users.size(); i++)
 	{
-		if (userID == Users[i].ID)
+		if (userID == Users[i]->ID)
 			return Users[i];
 	}
-	return User();
+	return nullptr;
 }
-User Database::GetUserByUsername(string username)
+User* Database::GetUserByUsername(string username)
 {
 	for (int i = 0; i < Users.size(); i++)
 	{
-		if (username == Users[i].Username)
+		if (username == Users[i]->Username)
 			return Users[i];
 	}
-	return User();
+	return nullptr;
 }
-Student Database::GetStudentByID(int userID)//samer
+Student* Database::GetStudentByID(int userID)//samer
 {
 	//msh m7taga 7aga y3ny zy getuserbyid
-	Student s;
-	return s;
+	return nullptr;
 }
-Student Database::GetStudentByUsername(string username)
+Student* Database::GetStudentByUsername(string username)
 {
 	//msh m7taga 7aga y3ny zy getuserbyusername
-	Student s;
-	return s;
+	return nullptr;
 }
-vector<User> Database::GetUsers(int Role)
+vector<User*> Database::GetUsers(int Role)
 {
-	vector<User> Result;
+	vector<User*> Result;
 	for (int i = 0; i < Users.size(); i++)
-		if (Role == Users[i].Role)
+		if (Role == Users[i]->Role)
 			Result.push_back(Users[i]);
 	return Result;
 	
 }
-vector<Course> Database::GetPreRequiredCourses(Course course)//farah
+vector<Course*> Database::GetPreRequiredCourses(Course course)//farah
 {
 
-	vector<Course> r;
+	vector<Course*> r;
 	for (int i = 0; i < course.PreRequiredCourses.size(); i++) 
 	{
 		r.push_back(GetCourse(course.PreRequiredCourses[i]));

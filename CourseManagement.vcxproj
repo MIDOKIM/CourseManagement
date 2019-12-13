@@ -89,6 +89,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Admin.cpp" />
+    <ClCompile Include="adminPanel.cpp" />
     <ClCompile Include="Course.cpp" />
     <ClCompile Include="CourseManagement.cpp" />
     <ClCompile Include="CSVFile.cpp" />
@@ -101,10 +102,18 @@
     <QtMoc Include="CourseManagement.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtUic Include="adminPanel.ui" />
     <QtUic Include="CourseManagement.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="CourseManagement.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="adminPanel.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="courses.csv" />
+    <None Include="users.csv" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
@@ -113,10 +122,6 @@
     <ClInclude Include="database.h" />
     <ClInclude Include="student.h" />
     <ClInclude Include="User.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="courses.csv" />
-    <None Include="users.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

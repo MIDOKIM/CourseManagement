@@ -4,12 +4,12 @@
 #include"Course.h"
 Student::Student(int userID)
 {
-	auto user = Database::GetUserByID(userID);
-	User::Name = user.Name;
-	User::Username = user.Username;
-	User::Password = user.Password;
-	User::ID = user.ID;
-	User::Role = user.Role;
+	auto* user = Database::GetUserByID(userID);
+	User::Name = user->Name;
+	User::Username = user->Username;
+	User::Password = user->Password;
+	User::ID = user->ID;
+	User::Role = user->Role;
 }
 
 
@@ -47,22 +47,22 @@ bool Student::HaveFinishedCourse(string courseid)
 	return false;
 }
 
-vector<Student> Student::LoadStudents()
+vector<Student*> Student::LoadStudents()
 {
-	vector<Student> result;
+	vector<Student*> result;
 	CSVFile StudFile("Students.csv");
 	auto lines = StudFile.Load();
 	for (auto line : lines)
 	{
 		vector<string> parsedLine = CSVFile::ParseLine(line);
-		Student std(stoi(parsedLine[0]));
-		std.Academicyear = stoi(parsedLine[1]);
+		Student* std = new Student(stoi(parsedLine[0]));
+		std->Academicyear = stoi(parsedLine[1]);
 		auto numFinished = stoi(parsedLine[2]);
 		auto numProgrs = stoi(parsedLine[3]);
 		for(int i=4 ; i<= numFinished +3 ;i++)
-		std.FinishedCourses.push_back(parsedLine[i]) ;
+		std->FinishedCourses.push_back(parsedLine[i]) ;
 		for(int i = 4 + numFinished; i <= 4 + numFinished + numProgrs;i++)
-		std.CoursesInProgress.push_back(parsedLine[i]);
+		std->CoursesInProgress.push_back(parsedLine[i]);
 		result.push_back(std);
 	}
 	
@@ -75,20 +75,13 @@ vector<string> Student::GetStudentLines()//farah
 	for (int i = 0; i < Database::Students.size(); i++)
 	{
 		string s;
-		Student student = Database::Students[i];
+		Student* student = Database::Students[i];
 
-		s += student.ID + "," + to_string(student.Academicyear) + "," + to_string(student.FinishedCourses.size()) + "," + to_string(student.CoursesInProgress.size()) ;
-		for (int i = 0; i < student.FinishedCourses.size(); i++)
-		{
-			s += ","+student.FinishedCourses[i];
-			
-		}
-		for (int i = 0; i < student.CoursesInProgress.size(); i++)
-		{
-
-			s +=","+ student.CoursesInProgress[i];
-		
-		}
+		s += student->ID + "," + to_string(student->Academicyear) + "," + to_string(student->FinishedCourses.size()) + "," + to_string(student->CoursesInProgress.size());
+		for (int i = 0; i < student->FinishedCourses.size(); i++)
+			s += ","+student->FinishedCourses[i];
+		for (int i = 0; i < student->CoursesInProgress.size(); i++)
+			s +=","+ student->CoursesInProgress[i];		
 		result.push_back(s);
 		s = "";
 		

@@ -12,8 +12,8 @@ class Course
 	int MaxNumOfStudents;
 	int Hours;
 	vector<string> PreRequiredCourses;
-	vector<Student> GetStudents();
+	vector<Student*> GetStudents();
 	static vector<string> GetCoursesLines();
-	static vector<Course> LoadCourses();
+	static vector<Course*> LoadCourses();
 };
 

@@ -11,7 +11,7 @@ class User
 	string Password;
 	int ID;
 	int Role;
-	static vector<User> LoadUsers();
+	static vector<User*> LoadUsers();
 	static vector<string> GetUsersLines();
 };
 
