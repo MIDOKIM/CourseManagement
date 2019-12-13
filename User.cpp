@@ -16,9 +16,10 @@ vector<User*> User::LoadUsers()
 		auto parsedLine = CSVFile::ParseLine(line);
 		User* u = new User();
 		u->ID = stoi(parsedLine[0]);
-		u->Name = parsedLine[1];
-		u->Password = parsedLine[2];
-		u->Role = stoi(parsedLine[3]);
+		u->Username = parsedLine[1];
+		u->Name = parsedLine[2];
+		u->Password = parsedLine[3];
+		u->Role = stoi(parsedLine[4]);
 		Result.push_back(u);
 	}
 	return Result;
