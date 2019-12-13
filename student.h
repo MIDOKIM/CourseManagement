@@ -12,10 +12,10 @@ public:
 	bool CanTakeCourse(Course c);
 	bool HaveCourseInProgress(string courseid);
 	bool HaveFinishedCourse(string courseid);
+	vector<Course*> GetFinishedCourses();
+	vector<Course*> GetCoursesInProgress();
 	static vector<Student*> LoadStudents();
 	static vector<string> GetStudentLines();
-	static string Studentt(Student student);
-	static string Studenttt(Student student);
 	Student();
 	~Student();
 };

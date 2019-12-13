@@ -27,7 +27,7 @@ void CourseManagement::on_pushButton_clicked() {
 	{
 		if (user->Role == 1) //admin
 		{
-	adminPanel* nw = new adminPanel();
+	adminPanel* nw = new adminPanel(user);
 	nw->show();
 	this->hide();
 		}

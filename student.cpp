@@ -47,6 +47,30 @@ bool Student::HaveFinishedCourse(string courseid)
 	return false;
 }
 
+vector<Course*> Student::GetFinishedCourses()
+{
+		vector<Course*> result;
+		for (auto CID : FinishedCourses)
+		{
+			auto c = Database::GetCourse(CID);
+			if (c != nullptr)
+				result.push_back(c);
+		}
+	return result;
+}
+
+vector<Course*> Student::GetCoursesInProgress()
+{
+	vector<Course*> result;
+		for (auto CID : CoursesInProgress)
+		{
+			auto c = Database::GetCourse(CID);
+			if (c != nullptr)
+				result.push_back(c);
+		}
+	return result;
+}
+
 vector<Student*> Student::LoadStudents()
 {
 	vector<Student*> result;
@@ -88,19 +112,6 @@ vector<string> Student::GetStudentLines()//farah
 	}
 	//ex:id,academicyear,number of finished courses,number of courses in progress,coursefinished1,coursefinished2,coursefinished3,....,courseinprogress1,courseinprogress2,....
 	return result;
-}
-
-string Student::Studenttt(Student student)
-{
-	string l;
-	for (int i = 0; i < student.CoursesInProgress.size(); i++)
-	{
-		
-		l += student.CoursesInProgress[i];
-		if (i != (student.CoursesInProgress.size() - 1))
-			l += ",";
-	}
-	return l;
 }
 
 Student::Student()

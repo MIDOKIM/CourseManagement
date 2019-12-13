@@ -12,9 +12,9 @@ class adminPanel : public QWidget
 	Q_OBJECT
 
 public:
-	adminPanel(User admin,QWidget *parent = Q_NULLPTR);
+	adminPanel(User* admin,QWidget *parent = Q_NULLPTR);
 	~adminPanel();
- User admin;
+ User* admin;
 	
 private:
 	Ui::adminPanel ui;
