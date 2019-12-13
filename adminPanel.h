@@ -4,7 +4,10 @@
 #include "ui_adminPanel.h"
 #include "User.h"
 #include "Admin.h"
-
+#include "adminPanel.h"
+#include "Course.h"
+#include "GeneralTree.h"
+#include "Database.h"
 
 class User;
 

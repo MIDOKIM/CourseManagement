@@ -18,7 +18,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -94,6 +94,7 @@
     <ClCompile Include="CourseManagement.cpp" />
     <ClCompile Include="CSVFile.cpp" />
     <ClCompile Include="database.cpp" />
+    <ClCompile Include="GeneralTree.cpp" />
     <ClCompile Include="Home.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="student.cpp" />
@@ -124,6 +125,7 @@
     <ClInclude Include="CSVFile.h" />
     <ClInclude Include="database.h" />
     <QtMoc Include="Home.h" />
+    <ClInclude Include="GeneralTree.h" />
     <ClInclude Include="student.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>

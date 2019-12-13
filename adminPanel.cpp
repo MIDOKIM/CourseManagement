@@ -1,7 +1,6 @@
+
+
 #include "adminPanel.h"
-#include "Course.h"
-#include "Database.h"
-#include "GeneralTree.h"
 
 adminPanel::adminPanel(User* admin,QWidget *parent)
 	: QWidget(parent)

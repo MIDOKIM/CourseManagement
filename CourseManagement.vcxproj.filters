@@ -52,10 +52,10 @@
     <ClCompile Include="User.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneralTree.cpp">
+    <ClCompile Include="Home.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Home.cpp">
+    <ClCompile Include="GeneralTree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
