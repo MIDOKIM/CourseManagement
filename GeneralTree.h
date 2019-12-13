@@ -1,10 +1,10 @@
 #pragma once
 #include <vector>
+#include<string>
 using namespace std;
 class Node
 {
 public:
-
 	Node(string value,Node* parent);
 	Node(string value);
 	Node* Parent;

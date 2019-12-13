@@ -1,5 +1,6 @@
 #include "GeneralTree.h"
-
+#include<string>
+using namespace std;
 
 Node::Node(string value, Node* parent)
 {

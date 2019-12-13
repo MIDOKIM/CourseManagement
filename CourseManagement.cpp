@@ -11,8 +11,6 @@ CourseManagement::CourseManagement(QWidget *parent)
 {
 	ui.setupUi(this);
 	Database::load();
-	adminPanel* nw = new adminPanel(nullptr);
-	nw->show();
 }
 void CourseManagement::on_pushButton_clicked() {
 	string username = ui.lineEdit->text().toStdString();
@@ -28,12 +26,19 @@ void CourseManagement::on_pushButton_clicked() {
 	}
 	if (user->Login(password))
 	{
-		 //admin=1 student=0
-		
-	Home* nw = new Home(user);
-	nw->show();
-	this->hide();
-		
+		//admin=1 student=0
+		if (user->Role == 0) 
+		{
+		Home* nw = new Home(user);
+		nw->show();
+		this->hide();
+		}
+		else if (user->Role == 1)
+		{
+			adminPanel* nw = new adminPanel(user);
+			nw->show();
+			this->hide();
+		}
 	}
 	else
 	{
