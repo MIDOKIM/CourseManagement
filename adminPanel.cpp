@@ -1,5 +1,5 @@
 
-
+#include <QMessageBox>
 #include "adminPanel.h"
 
 adminPanel::adminPanel(User* admin,QWidget *parent)
@@ -7,7 +7,8 @@ adminPanel::adminPanel(User* admin,QWidget *parent)
 {
 	ui.setupUi(this);
 	this->admin = admin;
-	
+	aa(Database::Courses);
+
 }
 
 adminPanel::~adminPanel()
@@ -16,7 +17,6 @@ adminPanel::~adminPanel()
 
 void adminPanel::on_pushButton1_Clicked()
 {
-	aa(Database::Courses);
 }
 QTreeWidgetItem* createitem(Node* n)
 {
