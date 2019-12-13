@@ -54,4 +54,3 @@ void CourseManagement::on_checkBox_stateChanged()
 	(ui.checkBox->isChecked()) ? ui.lineEdit_2->setEchoMode(QLineEdit::Normal) : ui.lineEdit_2->setEchoMode(QLineEdit::Password);
 
 }
-

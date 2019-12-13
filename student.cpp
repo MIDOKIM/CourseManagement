@@ -16,12 +16,14 @@ Student::Student(int userID)
 
 
 
-bool Student::CanTakeCourse(Course c)
+bool Student::CanTakeCourse(Course* c)
 {
-	for (int i = 0; i < c.PreRequiredCourses.size(); i++)
+	for (int i = 0; i < c->PreRequiredCourses.size(); i++)
 	{
-		string courseid = c.PreRequiredCourses[i];
+		string courseid = c->PreRequiredCourses[i];
 		if (HaveFinishedCourse(courseid) == false)
+			return false;
+		if (HaveCourseInProgress(courseid) == false)
 			return false;
 	} 
 	return true;

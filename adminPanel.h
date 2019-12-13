@@ -24,4 +24,5 @@ private:
 	Ui::adminPanel ui;
 private slots:
 	void on_pushButton1_Clicked();
+	void on_treeWidget_ItemClicked();
 };

@@ -65,7 +65,7 @@
     <string>Number Of Finished Courses</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="viewall">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -91,7 +91,7 @@
     <string>Edit Data</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="viewmine">
    <property name="geometry">
     <rect>
      <x>260</x>
@@ -104,7 +104,7 @@
     <string>View My Courses</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="rgstr">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -122,8 +122,8 @@
     <rect>
      <x>50</x>
      <y>30</y>
-     <width>54</width>
-     <height>14</height>
+     <width>191</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="text">

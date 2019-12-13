@@ -15,4 +15,6 @@ private:
 private slots:
 	void on_pushButton_clicked();
 	void on_checkBox_stateChanged();
+
+
 };

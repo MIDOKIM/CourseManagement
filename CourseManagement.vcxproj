@@ -18,7 +18,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -94,11 +94,13 @@
     <ClCompile Include="CourseManagement.cpp" />
     <ClCompile Include="CSVFile.cpp" />
     <ClCompile Include="database.cpp" />
+    <ClCompile Include="EditStudent.cpp" />
     <ClCompile Include="GeneralTree.cpp" />
     <ClCompile Include="Home.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="student.cpp" />
     <ClCompile Include="User.cpp" />
+    <ClCompile Include="ViewCourses.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="CourseManagement.h" />
@@ -107,6 +109,7 @@
     <QtUic Include="adminPanel.ui" />
     <QtUic Include="CourseManagement.ui" />
     <QtUic Include="Home.ui" />
+    <QtUic Include="ViewCourses.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="CourseManagement.qrc" />
@@ -124,7 +127,9 @@
     <ClInclude Include="Course.h" />
     <ClInclude Include="CSVFile.h" />
     <ClInclude Include="database.h" />
+    <QtMoc Include="ViewCourses.h" />
     <QtMoc Include="Home.h" />
+    <QtMoc Include="EditStudent.h" />
     <ClInclude Include="GeneralTree.h" />
     <ClInclude Include="student.h" />
     <ClInclude Include="User.h" />
