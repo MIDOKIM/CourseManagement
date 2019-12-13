@@ -1,6 +1,7 @@
 #include "Course.h"
 #include "CSVFile.h"
 #include "Database.h"
+#include "GeneralTree.h"
 
 vector<Student*> Course::GetStudents()
 {
@@ -48,4 +49,37 @@ vector<Course*> Course::LoadCourses()
 		Result.push_back(course);
 	}
 	return Result;
+}
+
+
+QTreeWidgetItem* createitem(Node* n)
+{
+	auto item = new QTreeWidgetItem();
+		item->setText(0,QString::fromStdString(Database::GetCourse(n->Value)->Name));
+		for (auto element : n->Childs)
+		{
+			auto widgetitem = createitem(element);
+			item->addChild(widgetitem);
+		}
+	
+	return  item;
+}
+
+vector<QTreeWidgetItem*> Course::CreateTree(vector<Course*> Courses)
+{
+	vector<QTreeWidgetItem*> Parents;
+	GeneralTree tree;
+	for (auto  c : Courses)
+	{
+			for (auto element : c->PreRequiredCourses)
+			{
+				tree.AddChild(c->Code,element);
+			}
+	}
+
+	for (auto c : tree.Nodes)
+	{
+		Parents.push_back(createitem(c));
+	}
+	return Parents;
 }
