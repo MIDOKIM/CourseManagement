@@ -26,7 +26,7 @@ Home::~Home()
 
 void Home::on_viewall_clicked()
 {
-	ViewCourses* nw = new ViewCourses();
+	ViewCourses* nw = new ViewCourses(stud);
 	nw->show();
 }
 

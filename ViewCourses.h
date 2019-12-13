@@ -16,7 +16,6 @@ public:
 private:
 	Ui::ViewCourses ui;
 private slots:
-	void on_checkBox_stateChanged();
-	void on_checkBox_1_stateChanged();
 	void on_Item_Clicked();
+	void RadioButton_Clicked();
 };

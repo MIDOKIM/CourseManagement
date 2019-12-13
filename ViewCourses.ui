@@ -28,32 +28,6 @@
     </property>
    </column>
   </widget>
-  <widget class="QCheckBox" name="checkBox">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>10</y>
-     <width>151</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>View Only In Progress</string>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="checkBox_1">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>140</width>
-     <height>18</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>View Available for me</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
@@ -106,8 +80,131 @@
     <string>TextLabel</string>
    </property>
   </widget>
+  <widget class="QRadioButton" name="rad_Progrss">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>82</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>In Progress</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="rad_Finished">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>10</y>
+     <width>82</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Finished</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="rad_All">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>82</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>All Courses</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radAllowed">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>30</y>
+     <width>111</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Allowed Courses</string>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>rad_Progrss</sender>
+   <signal>clicked()</signal>
+   <receiver>ViewCourses</receiver>
+   <slot>RadioButton_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>50</x>
+     <y>18</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>252</x>
+     <y>197</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rad_Finished</sender>
+   <signal>clicked()</signal>
+   <receiver>ViewCourses</receiver>
+   <slot>RadioButton_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>140</x>
+     <y>18</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>252</x>
+     <y>197</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rad_All</sender>
+   <signal>clicked()</signal>
+   <receiver>ViewCourses</receiver>
+   <slot>RadioButton_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>50</x>
+     <y>38</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>252</x>
+     <y>197</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radAllowed</sender>
+   <signal>clicked()</signal>
+   <receiver>ViewCourses</receiver>
+   <slot>RadioButton_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>155</x>
+     <y>38</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>252</x>
+     <y>197</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>RadioButton_Clicked()</slot>
+ </slots>
 </ui>

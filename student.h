@@ -8,7 +8,8 @@ class Student : public User
 public:
 	Student(int userID);
 	int Academicyear;
-	vector<string> FinishedCourses,CoursesInProgress;
+	std::vector<string> FinishedCourses;
+	std::vector<string> CoursesInProgress;
 	bool CanTakeCourse(Course* c);
 	bool HaveCourseInProgress(string courseid);
 	bool HaveFinishedCourse(string courseid);

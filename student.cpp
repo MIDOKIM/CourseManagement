@@ -2,7 +2,7 @@
 #include "database.h"
 #include "CSVFile.h"
 #include"Course.h"
-Student::Student(int userID)
+Student::Student(int userID) : FinishedCourses(),CoursesInProgress()
 {
 	auto* user = Database::GetUserByID(userID);
 	User::Name = user->Name;
@@ -41,9 +41,9 @@ bool Student::HaveCourseInProgress(string courseid)
 
 bool Student::HaveFinishedCourse(string courseid)
 {
-	for (auto course : FinishedCourses)
+	for (int i = 0; i < FinishedCourses.size(); i++)
 	{
-		if(course == courseid)
+		if(FinishedCourses[i] == courseid)
 			return true;
 	}
 	return false;
