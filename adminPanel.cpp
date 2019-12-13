@@ -1,9 +1,10 @@
 #include "adminPanel.h"
 
-adminPanel::adminPanel(QWidget *parent)
+adminPanel::adminPanel(User admin,QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
+	this->admin = admin;
 }
 
 adminPanel::~adminPanel()
