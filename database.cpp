@@ -72,12 +72,17 @@ User* Database::GetUserByUsername(string username)
 }
 Student* Database::GetStudentByID(int userID)//samer
 {
+	for (int i = 0; i < Students.size(); i++)
+		if (userID == Students[i]->ID)
+			return Students[i];
 	//msh m7taga 7aga y3ny zy getuserbyid
 	return nullptr;
 }
 Student* Database::GetStudentByUsername(string username)
 {
-	//msh m7taga 7aga y3ny zy getuserbyusername
+	for (int i = 0; i < Students.size(); i++)
+		if (username == Students[i]->Username)
+			return Students[i];
 	return nullptr;
 }
 vector<User*> Database::GetUsers(int Role)
