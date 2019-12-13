@@ -55,6 +55,9 @@
     <ClCompile Include="GeneralTree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Home.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="CourseManagement.h">
@@ -63,12 +66,18 @@
     <QtMoc Include="adminPanel.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="Home.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="CourseManagement.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="adminPanel.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Home.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -80,6 +89,7 @@
   <ItemGroup>
     <None Include="users.csv" />
     <None Include="courses.csv" />
+    <None Include="Students.csv" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h">

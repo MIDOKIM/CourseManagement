@@ -85,7 +85,7 @@ vector<Student*> Student::LoadStudents()
 		auto numProgrs = stoi(parsedLine[3]);
 		for(int i=4 ; i<= numFinished +3 ;i++)
 		std->FinishedCourses.push_back(parsedLine[i]) ;
-		for(int i = 4 + numFinished; i <= 4 + numFinished + numProgrs;i++)
+		for(int i = 4 + numFinished; i < 4 + numFinished + numProgrs;i++)
 		std->CoursesInProgress.push_back(parsedLine[i]);
 		result.push_back(std);
 	}

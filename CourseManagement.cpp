@@ -3,6 +3,7 @@
 #include"database.h"
 #include"adminPanel.h"
 #include <QMessageBox>
+#include"Home.h"
 using namespace std;
 
 CourseManagement::CourseManagement(QWidget *parent)
@@ -27,12 +28,12 @@ void CourseManagement::on_pushButton_clicked() {
 	}
 	if (user->Login(password))
 	{
-		if (user->Role == 1) //admin
-		{
-	adminPanel* nw = new adminPanel(user);
+		 //admin=1 student=0
+		
+	Home* nw = new Home(user);
 	nw->show();
 	this->hide();
-		}
+		
 	}
 	else
 	{
