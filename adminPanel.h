@@ -3,6 +3,7 @@
 #include <QWidget>
 #include "ui_adminPanel.h"
 #include "User.h"
+#include "Admin.h"
 
 
 class User;
@@ -20,5 +21,5 @@ private:
 	Ui::adminPanel ui;
 private slots:
 	void on_pushButton1_Clicked();
-	
+	void aa(vector<Course*> courses);
 };

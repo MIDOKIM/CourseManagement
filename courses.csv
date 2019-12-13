@@ -1,2 +1,56 @@
-SP1,Structured Programming,5,20
-DS,Data Structure,5,20,SP1
+1,English 1,10,80
+2,English 2,10,40,1
+3,Report,20,80,2
+4,Introduc,10,80
+5,Struct pg,10,100,4
+6,Data Stru,20,80,5
+7,File Org,10,80,5
+8,DB,10,40,7
+9,Sys AD,20,80,8
+10,Data Ret,10,40,8
+11,Data Min,20,80,8
+12,Oper Res,10,80,6
+13,Mod Sim,10,40,6
+14,Automat,20,80,6
+15,OOP,10,80,6
+16,Numeric,10,40,6
+17,Algo,20,80,6
+18,AI,30,120,6
+19,Know Sys,20,80,18
+20,Img Proc,30,90,18
+21,Graphics,10,80,15
+22,SW Eng,10,40,15
+23,Mainten,20,80,22
+24,Metrics,10,80,22
+25,OO DesP,10,100,22
+26,Frml MM,20,80,22
+27,Reus SW,10,80,22
+28,Compnts,10,40,22
+29,Sql Topic,20,80,22
+30,Proj 2,10,40,22
+31,Proj 1,20,80,22
+32,Proj Mgt,10,80,22
+33,UID,10,40,22
+34,SW DA,20,80,22
+35,Web,10,80,22
+36,Testing,10,40,22
+37,SW Eng R,20,80,22
+38,Math 1,30,120
+39,Math 2,20,80,38
+40,Math 3,30,90,39
+41,Math 4,10,40,40
+42,Probab,20,80,40
+43,Physics,10,80
+44,Electro,10,100,43
+45,Logic,20,80,44
+46,Assemb,10,80,45
+47,OS,10,40,46
+48,Networks,20,80,47
+49,Dist Sys,10,40,47
+50,Security,20,80,48
+51,Business,10,80
+52,Econom,10,40
+53,Ethics,20,80
+54,Human,10,80
+55,ComNeg,10,40
+56,Crtve Thk,10,40

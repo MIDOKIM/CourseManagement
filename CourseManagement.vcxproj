@@ -94,6 +94,7 @@
     <ClCompile Include="CourseManagement.cpp" />
     <ClCompile Include="CSVFile.cpp" />
     <ClCompile Include="database.cpp" />
+    <ClCompile Include="GeneralTree.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="student.cpp" />
     <ClCompile Include="User.cpp" />
@@ -120,6 +121,7 @@
     <ClInclude Include="Course.h" />
     <ClInclude Include="CSVFile.h" />
     <ClInclude Include="database.h" />
+    <ClInclude Include="GeneralTree.h" />
     <ClInclude Include="student.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>

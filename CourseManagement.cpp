@@ -10,6 +10,8 @@ CourseManagement::CourseManagement(QWidget *parent)
 {
 	ui.setupUi(this);
 	Database::load();
+	adminPanel* nw = new adminPanel(nullptr);
+	nw->show();
 }
 void CourseManagement::on_pushButton_clicked() {
 	string username = ui.lineEdit->text().toStdString();
