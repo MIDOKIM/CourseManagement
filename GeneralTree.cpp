@@ -17,6 +17,9 @@ Node::Node(string value)
 void GeneralTree::AddChild(string value,string parenttext)
 {
 	Node* parent = Find(parenttext);
+		Node* child = Find(value);
+		if (child != nullptr)
+			return;
 	if (parent == nullptr)
 		AddParent(parenttext);
 	parent = Find(parenttext);

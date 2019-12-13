@@ -71,6 +71,10 @@ vector<QTreeWidgetItem*> Course::CreateTree(vector<Course*> Courses)
 	GeneralTree tree;
 	for (auto  c : Courses)
 	{
+			if (c->PreRequiredCourses.empty())
+			{
+				tree.AddParent(c->Code);
+			}
 			for (auto element : c->PreRequiredCourses)
 			{
 				tree.AddChild(c->Code,element);

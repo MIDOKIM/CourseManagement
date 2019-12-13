@@ -203,8 +203,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>treeWidget</sender>
+   <signal>itemClicked(QTreeWidgetItem*,int)</signal>
+   <receiver>ViewCourses</receiver>
+   <slot>Widget_Item_Clicked(QTreeWidgetItem*,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>264</x>
+     <y>108</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>252</x>
+     <y>197</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>RadioButton_Clicked()</slot>
+  <slot>Widget_Item_Clicked(QTreeWidgetItem*,int)</slot>
  </slots>
 </ui>
