@@ -28,7 +28,7 @@
     </property>
    </column>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="lbl_Name">
    <property name="geometry">
     <rect>
      <x>360</x>
@@ -41,7 +41,7 @@
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="lbl_Code">
    <property name="geometry">
     <rect>
      <x>360</x>
@@ -54,7 +54,7 @@
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="lbl_MaxNum">
    <property name="geometry">
     <rect>
      <x>360</x>
@@ -67,7 +67,7 @@
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="lbl_Hours">
    <property name="geometry">
     <rect>
      <x>360</x>

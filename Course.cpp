@@ -56,6 +56,7 @@ QTreeWidgetItem* createitem(Node* n)
 {
 	auto item = new QTreeWidgetItem();
 		item->setText(0,QString::fromStdString(Database::GetCourse(n->Value)->Name));
+		item->setData(0,Qt::UserRole,QVariant(QString::fromStdString(n->Value)));
 		for (auto element : n->Childs)
 		{
 			auto widgetitem = createitem(element);

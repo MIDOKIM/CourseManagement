@@ -16,6 +16,6 @@ public:
 private:
 	Ui::ViewCourses ui;
 private slots:
-	void on_Item_Clicked();
 	void RadioButton_Clicked();
+	void Widget_Item_Clicked(QTreeWidgetItem* item,int index);
 };
