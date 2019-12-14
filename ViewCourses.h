@@ -8,14 +8,15 @@ class ViewCourses : public QWidget
 	Q_OBJECT
 
 public:
-	ViewCourses(QWidget *parent = Q_NULLPTR);
 	ViewCourses(Student* S,QWidget* parent = Q_NULLPTR);
 	~ViewCourses();
 	Student* stud;
+	Course* c;
 
 private:
 	Ui::ViewCourses ui;
 private slots:
 	void RadioButton_Clicked();
 	void Widget_Item_Clicked(QTreeWidgetItem* item,int index);
+	void rgstrbtn_Clicked();
 };

@@ -54,7 +54,7 @@
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lbl_MaxNum">
+  <widget class="QLabel" name="lbl_Hours">
    <property name="geometry">
     <rect>
      <x>360</x>
@@ -67,7 +67,7 @@
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lbl_Hours">
+  <widget class="QLabel" name="lbl_MaxNum">
    <property name="geometry">
     <rect>
      <x>360</x>
@@ -133,6 +133,19 @@
    </property>
    <property name="text">
     <string>Allowed Courses</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="rgstrbtn">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>340</y>
+     <width>93</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Register Course</string>
    </property>
   </widget>
  </widget>

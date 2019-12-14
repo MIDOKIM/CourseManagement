@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>90</y>
+      <y>130</y>
       <width>85</width>
       <height>26</height>
      </rect>
@@ -39,7 +39,7 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>20</y>
+      <y>60</y>
       <width>131</width>
       <height>21</height>
      </rect>
@@ -54,7 +54,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>50</y>
+      <y>90</y>
       <width>71</width>
       <height>31</height>
      </rect>
@@ -72,7 +72,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>10</y>
+      <y>50</y>
       <width>71</width>
       <height>31</height>
      </rect>
@@ -90,7 +90,7 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>50</y>
+      <y>90</y>
       <width>131</width>
       <height>21</height>
      </rect>
@@ -117,7 +117,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>80</y>
+      <y>120</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -131,24 +131,6 @@
      <string>Show Password</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>400</width>
-     <height>25</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>

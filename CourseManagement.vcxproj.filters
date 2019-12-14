@@ -61,7 +61,7 @@
     <ClCompile Include="ViewCourses.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EditStudent.cpp">
+    <ClCompile Include="editProfile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -78,7 +78,7 @@
     <QtMoc Include="ViewCourses.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="EditStudent.h">
+    <QtMoc Include="editProfile.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -93,6 +93,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="ViewCourses.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="editProfile.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

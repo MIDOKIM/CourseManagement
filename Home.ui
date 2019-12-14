@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>510</width>
-    <height>307</height>
+    <height>192</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -65,24 +65,11 @@
     <string>Number Of Finished Courses</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="viewall">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>250</y>
-     <width>97</width>
-     <height>26</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>View All Courses</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="editdata">
    <property name="geometry">
     <rect>
      <x>390</x>
-     <y>20</y>
+     <y>60</y>
      <width>85</width>
      <height>26</height>
     </rect>
@@ -94,27 +81,14 @@
   <widget class="QPushButton" name="viewmine">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>250</y>
+     <x>380</x>
+     <y>100</y>
      <width>100</width>
      <height>26</height>
     </rect>
    </property>
    <property name="text">
     <string>View My Courses</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="rgstr">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>250</y>
-     <width>114</width>
-     <height>26</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Register For Course</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">

@@ -13,12 +13,12 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B12702AD-ABFB-343A-A199-8E24837244A3}</ProjectGuid>
     <Keyword>QtVS_v301</Keyword>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -94,7 +94,7 @@
     <ClCompile Include="CourseManagement.cpp" />
     <ClCompile Include="CSVFile.cpp" />
     <ClCompile Include="database.cpp" />
-    <ClCompile Include="EditStudent.cpp" />
+    <ClCompile Include="editProfile.cpp" />
     <ClCompile Include="GeneralTree.cpp" />
     <ClCompile Include="Home.cpp" />
     <ClCompile Include="main.cpp" />
@@ -108,6 +108,7 @@
   <ItemGroup>
     <QtUic Include="adminPanel.ui" />
     <QtUic Include="CourseManagement.ui" />
+    <QtUic Include="editProfile.ui" />
     <QtUic Include="Home.ui" />
     <QtUic Include="ViewCourses.ui" />
   </ItemGroup>
@@ -129,7 +130,7 @@
     <ClInclude Include="database.h" />
     <QtMoc Include="ViewCourses.h" />
     <QtMoc Include="Home.h" />
-    <QtMoc Include="EditStudent.h" />
+    <QtMoc Include="editProfile.h" />
     <ClInclude Include="GeneralTree.h" />
     <ClInclude Include="student.h" />
     <ClInclude Include="User.h" />

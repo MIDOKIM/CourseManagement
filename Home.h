@@ -15,9 +15,11 @@ public:
 	User* user;
 	Student* stud;
 	~Home();
+	void Load();
 private:
 	Ui::Home ui;
 private slots:
 	void on_viewmine_clicked();
 	void on_viewall_clicked();
+	void on_editdata_clicked();
 };
