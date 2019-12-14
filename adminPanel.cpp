@@ -15,13 +15,6 @@ adminPanel::~adminPanel()
 {
 }
 
-void adminPanel::on_treeWidget_ItemClicked()
-{
-
-	int x=ui.treeWidget->selectedItems().count();
-	ui.label->setText(QString::number(x));
-}
-
 void adminPanel::on_pushButton1_Clicked()
 {	
 }
