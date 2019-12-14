@@ -52,7 +52,5 @@ void ViewCourses::Widget_Item_Clicked(QTreeWidgetItem* item, int index)
 
 void ViewCourses::rgstrbtn_Clicked()
 {
-	
-	stud->CoursesInProgress.push_back(c);
-	
+	stud->CoursesInProgress.push_back(c->Code);
 }
