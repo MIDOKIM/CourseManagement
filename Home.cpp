@@ -37,4 +37,5 @@ void Home::on_editdata_clicked()
 {
 	editProfile* nw = new editProfile(stud);
 	nw->show();
+	Load();
 }
