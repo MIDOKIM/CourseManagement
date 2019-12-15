@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -145,7 +145,7 @@
     <attribute name="title">
      <string>Add Students</string>
     </attribute>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="newsname">
      <property name="geometry">
       <rect>
        <x>127</x>
@@ -155,7 +155,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="newsun">
      <property name="geometry">
       <rect>
        <x>127</x>
@@ -165,7 +165,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton1">
+    <widget class="QPushButton" name="addsbtn">
      <property name="geometry">
       <rect>
        <x>180</x>
@@ -178,7 +178,7 @@
       <string>Add Student</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_3">
+    <widget class="QLineEdit" name="newspw">
      <property name="geometry">
       <rect>
        <x>127</x>
@@ -188,7 +188,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_4">
+    <widget class="QLineEdit" name="newsyear">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -198,7 +198,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_5">
+    <widget class="QLineEdit" name="newsrole">
      <property name="geometry">
       <rect>
        <x>127</x>

@@ -1,5 +1,6 @@
 #include "editProfile.h"
 #include"Home.h"
+#include"database.h"
 editProfile::editProfile(Student* S,QWidget *parent)
 	: QWidget(parent)
 {
@@ -21,7 +22,6 @@ void editProfile::on_pushButton_clicked()
 	stud->Name = ui.lineEdit->text().toStdString();
 	stud->Password = ui.lineEdit_2->text().toStdString();
 	stud->Academicyear = ui.lineEdit_3->text().toInt();
-	load();
+	Database::Save();
 	this->close();
-	
 }
