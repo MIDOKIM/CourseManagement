@@ -6,6 +6,7 @@ ViewCourses::ViewCourses(Student* S,QWidget* parent)
 	: QWidget(parent)
 {
 	stud = S;
+	c=nullptr;
 	ui.setupUi(this);
 	ui.rgstrbtn->hide();
 	RadioButton_Clicked();
@@ -50,7 +51,12 @@ void ViewCourses::Widget_Item_Clicked(QTreeWidgetItem* item, int index)
 		ui.lbl_MaxNum->setText(QString::number(c->MaxNumOfStudents));
 }
 
-void ViewCourses::rgstrbtn_Clicked()
+void ViewCourses::on_rgstrbtn_clicked()
 {
+	if (c== nullptr)
+		return;
+	if (stud->CanTakeCourse(c))
 	stud->CoursesInProgress.push_back(c->Code);
+	ViewCourses::RadioButton_Clicked();
+	Database::Save();
 }

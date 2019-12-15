@@ -9,9 +9,11 @@ Database::Database()
 void Database::Save()
 {
 	CSVFile CoursesFile("courses.csv");
+	CoursesFile.Save(Course::GetCoursesLines());
 	CSVFile UsersFile("users.csv");
+	UsersFile.Save(User::GetUsersLines());
 	CSVFile StudFile("Students.csv");
-	
+	StudFile.Save(Student::GetStudentLines());
 }
 
 void Database::load() 

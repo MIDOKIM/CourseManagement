@@ -18,5 +18,5 @@ private:
 private slots:
 	void RadioButton_Clicked();
 	void Widget_Item_Clicked(QTreeWidgetItem* item,int index);
-	void rgstrbtn_Clicked();
+	void on_rgstrbtn_clicked();
 };

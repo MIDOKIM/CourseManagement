@@ -18,12 +18,16 @@ Student::Student(int userID) : FinishedCourses(),CoursesInProgress()
 
 bool Student::CanTakeCourse(Course* c)
 {
+	if (HaveFinishedCourse(c->Code) || HaveCourseInProgress(c->Code))
+		return false;
+	if (c->GetStudents().size() > c->MaxNumOfStudents)
+		return false;
 	for (int i = 0; i < c->PreRequiredCourses.size(); i++)
 	{
 		string courseid = c->PreRequiredCourses[i];
-		if (HaveFinishedCourse(courseid) == false)
+		if (!HaveFinishedCourse(courseid))
 			return false;
-		if (HaveCourseInProgress(courseid) == false)
+		if (HaveCourseInProgress(courseid))
 			return false;
 	} 
 	return true;
@@ -100,16 +104,15 @@ vector<string> Student::GetStudentLines()//farah
 	vector<string> result;
 	for (int i = 0; i < Database::Students.size(); i++)
 	{
-		string s;
 		Student* student = Database::Students[i];
 
-		s += student->ID + "," + to_string(student->Academicyear) + "," + to_string(student->FinishedCourses.size()) + "," + to_string(student->CoursesInProgress.size());
+		string s = to_string(student->ID) + "," + to_string(student->Academicyear) + "," +
+			to_string(student->FinishedCourses.size()) + "," + to_string(student->CoursesInProgress.size());
 		for (int i = 0; i < student->FinishedCourses.size(); i++)
 			s += ","+student->FinishedCourses[i];
 		for (int i = 0; i < student->CoursesInProgress.size(); i++)
 			s +=","+ student->CoursesInProgress[i];		
 		result.push_back(s);
-		s = "";
 		
 	}
 	//ex:id,academicyear,number of finished courses,number of courses in progress,coursefinished1,coursefinished2,coursefinished3,....,courseinprogress1,courseinprogress2,....
