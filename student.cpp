@@ -2,7 +2,7 @@
 #include "database.h"
 #include "CSVFile.h"
 #include"Course.h"
-Student::Student(int userID) : FinishedCourses(),CoursesInProgress()
+Student::Student(int userID)
 {
 	auto* user = Database::GetUserByID(userID);
 	User::Name = user->Name;
@@ -12,8 +12,14 @@ Student::Student(int userID) : FinishedCourses(),CoursesInProgress()
 	User::Role = user->Role;
 }
 
-
-
+Student::Student(string name, string username, string password, int academicyear, vector<string> finished,
+	vector<string> inprogress) : User(name,username,password,0)
+{
+	Academicyear = academicyear;
+	FinishedCourses = finished;
+	CoursesInProgress = inprogress;
+	Database::Students.push_back(this);
+}
 
 
 bool Student::CanTakeCourse(Course* c)

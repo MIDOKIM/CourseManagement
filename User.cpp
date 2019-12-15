@@ -2,6 +2,22 @@
 #include "CSVFile.h"
 #include "database.h"
 
+User::User()
+{
+}
+
+User::User(string name, string username, string password, int role)
+{
+	Name = name;
+	Username = username;
+	Password = password;
+	Role=role;
+	ID = Database::Users[Database::Users.size()-1]->ID +1;
+	while (Database::GetUserByID(ID) != nullptr)
+		ID++;
+	Database::Users.push_back(this);
+}
+
 bool User::Login(string password)
 {
 	return Password == password;

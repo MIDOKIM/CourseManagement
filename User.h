@@ -5,6 +5,8 @@ using namespace std;
 class User
 {
 	public:
+	User();
+	User(string name,string username,string password,int role);
 	bool Login(string password);
 	string Name;
 	string Username;

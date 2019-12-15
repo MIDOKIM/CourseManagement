@@ -7,6 +7,8 @@ class Student : public User
 {
 public:
 	Student(int userID);
+	Student(string name, string username, string password, int academicyear, vector<string> finished,
+	        vector<string> inprogress);
 	int Academicyear;
 	std::vector<string> FinishedCourses;
 	std::vector<string> CoursesInProgress;

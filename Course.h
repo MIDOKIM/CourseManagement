@@ -7,6 +7,8 @@ using namespace std;
 class Course
 {
 	public:
+	Course();
+	Course(string name,string code,int maxnum,int hours,vector<string> prerequired);
 	string Name;
 	string Code;
 	int MaxNumOfStudents;

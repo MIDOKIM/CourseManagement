@@ -3,6 +3,21 @@
 #include "Database.h"
 #include "GeneralTree.h"
 
+
+Course::Course()
+{
+}
+
+Course::Course(string name, string code, int maxnum, int hours, vector<string> prerequired)
+{
+	Name = name;
+	Code = code;
+	MaxNumOfStudents = maxnum;
+	Hours = hours;
+	PreRequiredCourses = prerequired;
+	Database::Courses.push_back(this);
+}
+
 vector<Student*> Course::GetStudents()
 {
 	vector<Student*> result;
@@ -14,6 +29,7 @@ vector<Student*> Course::GetStudents()
 	}
 	return result;
 }
+
 vector<string> Course::GetCoursesLines()
 {
 	vector<string> result;
@@ -52,8 +68,6 @@ vector<Course*> Course::LoadCourses()
 	}
 	return Result;
 }
-
-
 QTreeWidgetItem* createitem(Node* n)
 {
 	auto item = new QTreeWidgetItem();
@@ -67,7 +81,6 @@ QTreeWidgetItem* createitem(Node* n)
 	
 	return  item;
 }
-
 vector<QTreeWidgetItem*> Course::CreateTree(vector<Course*> Courses)
 {
 	vector<QTreeWidgetItem*> Parents;
