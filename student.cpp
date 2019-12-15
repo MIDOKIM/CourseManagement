@@ -2,14 +2,15 @@
 #include "database.h"
 #include "CSVFile.h"
 #include"Course.h"
-Student::Student(int userID)
+Student::Student(int userID) : User(*Database::GetUserByID(userID))
 {
-	auto* user = Database::GetUserByID(userID);
+	/*auto* user = Database::GetUserByID(userID);
+	
 	User::Name = user->Name;
 	User::Username = user->Username;
 	User::Password = user->Password;
 	User::ID = user->ID;
-	User::Role = user->Role;
+	User::Role = user->Role;*/
 }
 
 Student::Student(string name, string username, string password, int academicyear, vector<string> finished,
@@ -111,6 +112,11 @@ vector<string> Student::GetStudentLines()//farah
 	for (int i = 0; i < Database::Students.size(); i++)
 	{
 		Student* student = Database::Students[i];
+		User* user =Database::GetUserByID(student->ID);
+		user->Name = student->Name;
+		user->Username = student->Username;
+		user->Password = student->Password;
+		user->Role = student->Role;
 
 		string s = to_string(student->ID) + "," + to_string(student->Academicyear) + "," +
 			to_string(student->FinishedCourses.size()) + "," + to_string(student->CoursesInProgress.size());

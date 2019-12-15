@@ -6,6 +6,7 @@ User::User()
 {
 }
 
+
 User::User(string name, string username, string password, int role)
 {
 	Name = name;
