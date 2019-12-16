@@ -14,7 +14,7 @@ void adminPanel::LoadCrs()
 	for (int i = 0; i < itms.size(); i++)
 		ui.treeCrss->addTopLevelItem(itms[i]);
 }
-void adminPanel::item_Clicked(QTreeWidgetItem* item, int index)
+void adminPanel::itemClicked(QTreeWidgetItem* item, int index)
 {
 	c = Database::GetCourse(item->data(0, Qt::UserRole).toString().toStdString());
 	if (c == nullptr)

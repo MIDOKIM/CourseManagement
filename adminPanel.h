@@ -27,5 +27,5 @@ private:
 private slots:
 	void on_addsbtn_clicked();
 	void on_addcbtn_clicked();
-	void item_Clicked(QTreeWidgetItem* item, int index);
+	void itemClicked(QTreeWidgetItem* item, int index);
 };

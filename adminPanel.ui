@@ -682,9 +682,26 @@
   <tabstop>newsrolecb</tabstop>
  </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>treeCrss</sender>
+   <signal>itemClicked(QTreeWidgetItem*,int)</signal>
+   <receiver>adminPanel</receiver>
+   <slot>itemClicked(QTreeWidgetItem*,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>238</x>
+     <y>183</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>278</x>
+     <y>331</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
  <slots>
   <slot>on_pushButton1_Clicked()</slot>
-  <slot>itemClicked(QTreeWidgetItem* item, int index)</slot>
+  <slot>itemClicked(QTreeWidgetItem*,int)</slot>
  </slots>
 </ui>
