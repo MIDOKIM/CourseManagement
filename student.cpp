@@ -20,6 +20,7 @@ Student::Student(string name, string username, string password, int academicyear
 	FinishedCourses = finished;
 	CoursesInProgress = inprogress;
 	Database::Students.push_back(this);
+	Database::Save();
 }
 
 

@@ -19,9 +19,13 @@ public:
 	adminPanel(User* admin,QWidget *parent = Q_NULLPTR);
 	~adminPanel();
  User* admin;
-	
+ void LoadCrs();
+ Course* c;
+
 private:
 	Ui::adminPanel ui;
 private slots:
-	void on_addsbtn_Clicked();
+	void on_addsbtn_clicked();
+	void on_addcbtn_clicked();
+	void item_Clicked(QTreeWidgetItem* item, int index);
 };

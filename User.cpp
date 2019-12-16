@@ -17,6 +17,7 @@ User::User(string name, string username, string password, int role)
 	while (Database::GetUserByID(ID) != nullptr)
 		ID++;
 	Database::Users.push_back(this);
+	Database::Save();
 }
 
 bool User::Login(string password)

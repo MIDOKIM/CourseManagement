@@ -16,6 +16,7 @@ Course::Course(string name, string code, int maxnum, int hours, vector<string> p
 	Hours = hours;
 	PreRequiredCourses = prerequired;
 	Database::Courses.push_back(this);
+	Database::Save();
 }
 
 vector<Student*> Course::GetStudents()
