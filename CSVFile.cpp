@@ -32,6 +32,7 @@ vector<string> CSVFile::Load()
 	string line;
 	while (getline(Stream, line))
 	{
+		if(!line.empty())
 		result.push_back(line);
 	}
 	return result;
