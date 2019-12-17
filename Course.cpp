@@ -14,7 +14,12 @@ Course::Course(string name, string code, int maxnum, int hours, vector<string> p
 	Code = code;
 	MaxNumOfStudents = maxnum;
 	Hours = hours;
-	PreRequiredCourses = prerequired;
+	for (int i = 0; i < prerequired.size(); i++)
+	{
+		auto c = prerequired[i];
+		if (!c.empty())
+			PreRequiredCourses.push_back(c);
+	}
 	Database::Courses.push_back(this);
 	Database::Save();
 }

@@ -23,7 +23,20 @@ Student::Student(string name, string username, string password, int academicyear
 	Database::Save();
 }
 
-
+void Student::MoveCourseToFinished(string courseID)
+{
+	if (!HaveCourseInProgress(courseID))
+		return;
+	FinishedCourses.push_back(courseID);
+	int index=0;
+	for (auto course : CoursesInProgress)
+	{
+		if (course == courseID)
+			break;
+		index++;
+	}
+	CoursesInProgress.erase(CoursesInProgress.begin() + index);
+}
 bool Student::CanTakeCourse(Course* c)
 {
 	if (HaveFinishedCourse(c->Code) || HaveCourseInProgress(c->Code))
