@@ -17,9 +17,9 @@ Node::Node(string value)
 void GeneralTree::AddChild(string value,string parenttext)
 {
 	Node* parent = Find(parenttext);
-		Node* child = Find(value);
-		if (child != nullptr)
-			return;
+	Node* child = Find(value);
+	if (child != nullptr)
+		return;
 	if (parent == nullptr)
 		AddParent(parenttext);
 	parent = Find(parenttext);
@@ -31,7 +31,6 @@ void GeneralTree::AddParent(string value)
 	
 	Node* parent = Find(value);
 	if (parent == nullptr)
-
 	{		
 		parent = new Node(value);
 		Nodes.push_back(parent);
@@ -45,8 +44,8 @@ Node* GeneralTree::Find(std::string value)
 	{
 		if (n->Value == value)
 			return n;
-		auto child = SearchChilds(value,n);
-		if (child!= nullptr)
+		Node* child = SearchChilds(value,n);
+		if (child != nullptr)
 			return child;
 	}
 	return nullptr;
@@ -55,26 +54,15 @@ Node* GeneralTree::SearchChilds(string value,Node* node)
 {
 	if (node->Childs.empty())
 		return nullptr;
-	Node* result = nullptr;
 	for (auto child : node->Childs)
 	{
 		if (child->Value == value)
-		{
-			result = child;
-			break;
-		}
+			return child;
+		auto ChildSearch = SearchChilds(value, child);
+		if (ChildSearch != nullptr)
+			return ChildSearch;
 	}
-	if (result == nullptr)
-	{
-		for (auto child : node->Childs)
-		{
-			result = SearchChilds(value,child);
-			if (result != nullptr)
-				break;
-		}
-	}
-	return result;
-		
+	return nullptr;
 }
 GeneralTree::GeneralTree()
 {

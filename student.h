@@ -15,6 +15,7 @@ public:
 	bool CanTakeCourse(Course* c);
 	bool HaveCourseInProgress(string courseid);
 	bool HaveFinishedCourse(string courseid);
+	void MoveCourseToFinished(string courseid);
 	vector<Course*> GetFinishedCourses();
 	vector<Course*> GetCoursesInProgress();
 	static vector<Student*> LoadStudents();
