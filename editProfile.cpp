@@ -23,5 +23,6 @@ void editProfile::on_pushButton_clicked()
 	stud->Password = ui.lineEdit_2->text().toStdString();
 	stud->Academicyear = ui.lineEdit_3->text().toInt();
 	Database::Save();
+	Home::Load();
 	this->close();
 }

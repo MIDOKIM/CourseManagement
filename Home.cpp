@@ -5,16 +5,18 @@
 #include <iostream>
 #include"ViewCourses.h"
 #include"editProfile.h"
+#include<CourseManagement.h>
 using namespace std;
 
-Home::Home(User* U,QWidget *parent)
+Home::Home(User* U, QWidget* parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
 	this->user = U;
 	stud = new Student(user->ID);
-	stud=Database::GetStudentByUsername(user->Username);
+	stud = Database::GetStudentByUsername(user->Username);
 	Load();
+
 }
 void Home::Load()
 {
@@ -38,4 +40,11 @@ void Home::on_editdata_clicked()
 	editProfile* nw = new editProfile(stud);
 	nw->show();
 	Load();
+}
+void Home::on_logout_clicked()
+{
+	user = stud = NULL;
+	Home::close();
+	auto bk = new CourseManagement();
+	bk->show();
 }
