@@ -2,6 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_CourseManagement.h"
+#include "qmessagebox.h"
 
 class CourseManagement : public QMainWindow
 {
@@ -9,6 +10,7 @@ class CourseManagement : public QMainWindow
 
 public:
 	CourseManagement(QWidget *parent = Q_NULLPTR);
+	QMessageBox msgBox;
 
 private:
 	Ui::CourseManagementClass ui;

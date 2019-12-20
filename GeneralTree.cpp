@@ -21,8 +21,10 @@ void GeneralTree::AddChild(string value,string parenttext)
 	if (child != nullptr)
 		return;
 	if (parent == nullptr)
+	{
 		AddParent(parenttext);
-	parent = Find(parenttext);
+		parent = Find(parenttext);
+	}
 	parent->Childs.push_back(new Node(value,parent));
 }
 
