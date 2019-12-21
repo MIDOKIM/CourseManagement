@@ -22,7 +22,7 @@ void Database::load()
 	Database::Users = User::LoadUsers();
 	Database::Students = Student::LoadStudents();
 }
-Course* Database::GetCourse(string courseID) //farah
+Course* Database::GetCourse(string courseID)
 {
 	for (int i = 0; i < Courses.size(); i++)
 	{
@@ -51,12 +51,11 @@ User* Database::GetUserByUsername(string username)
 	}
 	return nullptr;
 }
-Student* Database::GetStudentByID(int userID)//samer
+Student* Database::GetStudentByID(int userID)
 {
 	for (int i = 0; i < Students.size(); i++)
 		if (userID == Students[i]->ID)
 			return Students[i];
-	//msh m7taga 7aga y3ny zy getuserbyid
 	return nullptr;
 }
 Student* Database::GetStudentByUsername(string username)
@@ -75,7 +74,7 @@ vector<User*> Database::GetUsers(int Role)
 	return Result;
 	
 }
-vector<Course*> Database::GetPreRequiredCourses(Course course)//farah
+vector<Course*> Database::GetPreRequiredCourses(Course course)
 {
 
 	vector<Course*> r;
