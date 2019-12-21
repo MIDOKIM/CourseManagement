@@ -33,25 +33,6 @@ Course* Database::GetCourse(string courseID) //farah
 	}
 	return nullptr;
 }
-void Database::AddStudent(int ID,int Year,vector<string> FCourses,vector<string>CinProgress)
-{
-	Student* s = new Student(ID);
-	s->Academicyear = Year;
-	s->FinishedCourses = FCourses;
-	s->CoursesInProgress = CinProgress;
-	Students.push_back(s);
-
-}
-void Database::AddCourse(string id,string name,int num,int hours,vector<string> prc)
-{
-	Course* c = new Course();
-	c->Code = id;
-	c->Hours = hours;
-	c->Name = name;
-	c->MaxNumOfStudents = num;
-	c->PreRequiredCourses = prc;
-	Courses.push_back(c);
-}
 User* Database::GetUserByID(int userID)
 {
 	for (int i = 0; i < Users.size(); i++)
