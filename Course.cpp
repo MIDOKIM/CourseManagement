@@ -87,20 +87,18 @@ QTreeWidgetItem* createitem(Node* n)
 	
 	return  item;
 }
-vector<QTreeWidgetItem*> Course::CreateTree(vector<Course*> Courses)
+vector<QTreeWidgetItem*> Course::CreateTree(vector<Course*> Courses,bool AddChilds)
 {
 	vector<QTreeWidgetItem*> Parents;
 	GeneralTree tree;
 	for (auto  c : Courses)
 	{
-			if (c->PreRequiredCourses.empty())
-			{
+			if (c->PreRequiredCourses.empty()||!AddChilds)
 				tree.AddParent(c->Code);
-			}
+			if(AddChilds)
 			for (auto element : c->PreRequiredCourses)
-			{
 				tree.AddChild(c->Code,element);
-			}
+			
 	}
 
 	for (auto c : tree.Nodes)

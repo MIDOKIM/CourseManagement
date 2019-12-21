@@ -19,13 +19,17 @@ void ViewCourses::RadioButton_Clicked()
 {
 	ui.rgstrbtn->hide();
 	ui.treeWidget->clear();
+	bool Fulltree = true;
 	vector<Course*> ToDisplay;
 	if(ui.rad_All->isChecked())
 		ToDisplay = Database::Courses;
 	else if (ui.rad_Finished->isChecked())
 		ToDisplay = stud->GetFinishedCourses();
 	else if (ui.rad_Progrss->isChecked())
+	{
 		ToDisplay = stud->GetCoursesInProgress();
+		Fulltree = false;
+	}
 	else if (ui.radAllowed->isChecked())
 	{
 		ui.rgstrbtn->show();
@@ -35,7 +39,7 @@ void ViewCourses::RadioButton_Clicked()
 				ToDisplay.push_back(Database::Courses[i]);
 		}
 	}
-	auto itms = Course::CreateTree(ToDisplay);
+	auto itms = Course::CreateTree(ToDisplay,Fulltree);
 		for (int i = 0; i < itms.size(); i++)
 			ui.treeWidget->addTopLevelItem(itms[i]);
 }

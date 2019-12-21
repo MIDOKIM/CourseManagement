@@ -17,7 +17,7 @@ class Course
 	vector<Student*> GetStudents();
 	static vector<string> GetCoursesLines();
 	static vector<Course*> LoadCourses();
-	static vector<QTreeWidgetItem*> CreateTree(vector<Course*> Courses);
+	static vector<QTreeWidgetItem*> CreateTree(vector<Course*> Courses, bool AddChilds =true);
 	
 };
 

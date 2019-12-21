@@ -16,13 +16,11 @@ void Database::Save()
 	UsersFile.Save(User::GetUsersLines());
 	
 }
-
 void Database::load() 
 {
 	Database:: Courses = Course::LoadCourses();
 	Database::Users = User::LoadUsers();
 	Database::Students = Student::LoadStudents();
-
 }
 Course* Database::GetCourse(string courseID) //farah
 {
@@ -34,7 +32,6 @@ Course* Database::GetCourse(string courseID) //farah
 		}
 	}
 	return nullptr;
-	
 }
 void Database::AddStudent(int ID,int Year,vector<string> FCourses,vector<string>CinProgress)
 {

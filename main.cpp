@@ -1,5 +1,7 @@
 #include "CourseManagement.h"
 #include <QtWidgets/QApplication>
+#include <student.h>
+#include <GeneralTree.h>
 
 int main(int argc, char* argv[])
 {
