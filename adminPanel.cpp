@@ -1,6 +1,7 @@
 #include <QMessageBox>
 #include "adminPanel.h"
 #include"CSVFile.h"
+#include"CourseManagement.h"
 adminPanel::adminPanel(User* admin,QWidget *parent)
 	: QWidget(parent)
 {
@@ -41,16 +42,24 @@ void adminPanel::itemClicked(QTreeWidgetItem* item, int index)
 }
 void adminPanel::on_updatecrsinfo_clicked()
 {
-	if (ui.crsname->text().isEmpty())
+	reply = QMessageBox::question(this, "Update Course", "Update course info?", QMessageBox::Yes | QMessageBox::No);
+	if (reply == QMessageBox::Yes)
 	{
-		return;
+		if (ui.crsname->text().isEmpty())
+		{
+			QMessageBox msgBox;
+			msgBox.setWindowTitle(" ");
+			msgBox.setText("There's no course selected, Select a course and try again");
+			msgBox.exec();
+			return;
+		}
+		c->Name = ui.crsname->text().toStdString();
+		c->Code = ui.crscode->text().toStdString();
+		c->Hours = ui.crshrs->text().toInt();
+		c->MaxNumOfStudents = ui.crsnumstd->text().toInt();
+		Database::Save();
+		LoadCrs(Database::Courses, ui.treeCrss);
 	}
-	c->Name = ui.crsname->text().toStdString();
-	c->Code=ui.crscode->text().toStdString();
-	c->Hours=ui.crshrs->text().toInt();
-	c->MaxNumOfStudents=ui.crsnumstd->text().toInt();
-	Database::Save();
-	LoadCrs(Database::Courses,ui.treeCrss);
 }
 adminPanel::~adminPanel()
 {
@@ -60,6 +69,10 @@ void adminPanel::on_getuserinfo_clicked()
 	S = Database::GetStudentByUsername(ui.susername->text().toStdString());
 	if (S == nullptr)
 	{
+		QMessageBox msgBox;
+		msgBox.setWindowTitle("No User Found");
+		msgBox.setText("Username is not correct");
+		msgBox.exec();
 		hidelabels();
 		Clear();
 		return;
@@ -98,20 +111,32 @@ void adminPanel::hidelabels()
 }
 void adminPanel::on_updateuinfo_clicked()
 {
-	if (ui.sname->text().isEmpty())
+	reply = QMessageBox::question(this, "Update Account", "Update account info?", QMessageBox::Yes | QMessageBox::No);
+	if (reply == QMessageBox::Yes)
 	{
-		return;
+		if (ui.sname->text().isEmpty())
+		{
+			return;
+		}
+		if (Database::GetUserByUsername(ui.sname->text().toStdString()) != NULL)
+		{
+			QMessageBox msgBox;
+			msgBox.setWindowTitle("");
+			msgBox.setText("Username Is Already Found, choose another username");
+			msgBox.exec();
+			return;
+		}
+		S->Username = ui.susername->text().toStdString();
+		S->Name = ui.sname->text().toStdString();
+		S->Password = ui.spassword->text().toStdString();
+		S->Academicyear = ui.syear->text().toInt();
+		Clear();
+		hidelabels();
+		Database::Save();
+		Q.setWindowTitle(" ");
+		Q.setText("Student Data Updated");
+		Q.exec();
 	}
-	S->Username = ui.susername->text().toStdString();
-	S->Name = ui.sname->text().toStdString();
-	S->Password = ui.spassword->text().toStdString();
-	S->Academicyear = ui.syear->text().toInt();
-	Clear();
-	hidelabels();
-	Database::Save();
-	Q.setWindowTitle("Student Updated");
-	Q.setText("Student Data Updated");
-	Q.exec();
 }
 void adminPanel::Clear()
 {
@@ -134,57 +159,94 @@ QString adminPanel::getStuds(Course* c)
 	return result;
 }
 void adminPanel::on_addsbtn_clicked()
-{	
-	QMessageBox msgBox;
-	if (ui.newsname->text().isEmpty() || ui.newspw->text().isEmpty() || ui.newsrolecb->currentIndex() < 0 ||
-		ui.newsun->text().isEmpty() || ui.newsyear->text().isEmpty())
+{
+	reply = QMessageBox::question(this, "Add Account", "Add new account?", QMessageBox::Yes | QMessageBox::No);
+	if (reply == QMessageBox::Yes)
 	{
-		msgBox.setWindowTitle("No Data Entered");
-		msgBox.setText("Please Enter User Data");
-		msgBox.exec();
-		return;
-	}
-	if (ui.newsrolecb->currentIndex() == 1)
-	{
-		auto u = new User(ui.newsname->text().toStdString(), ui.newsun->text().toStdString(), ui.newspw->text().toStdString(),
-		           ui.newsrolecb->currentIndex()); //admin
-		msgBox.setWindowTitle("User Added");
-		msgBox.setText("Admin Added Successfuly");
-		msgBox.exec();
-	}
-	else if (ui.newsrolecb->currentIndex() == 0)
-	{
-		auto u = new Student(ui.newsname->text().toStdString(), ui.newsun->text().toStdString(),
-		                     ui.newspw->text().toStdString(), ui.newsyear->text().toInt(), vector<string>(),
-		                     vector<string>()); //student
-		msgBox.setWindowTitle("User Added");
-		msgBox.setText("Student Added Successfuly");
-		msgBox.exec();
+		QMessageBox msgBox;
+		if (ui.newsname->text().isEmpty() || ui.newspw->text().isEmpty() || ui.newsrolecb->currentIndex() < 0 ||
+			ui.newsun->text().isEmpty() || ui.newsyear->text().isEmpty())
+		{
+			msgBox.setWindowTitle("No Data Entered");
+			msgBox.setText("Please Enter User Data");
+			msgBox.exec();
+			return;
+		}
+		if (Database::GetUserByUsername(ui.newsname->text().toStdString())!=NULL)
+		{
+			msgBox.setWindowTitle("");
+			msgBox.setText("Username Is Already Found, choose another username");
+			msgBox.exec();
+			return;
+		}
+		if (ui.newsrolecb->currentIndex() == 1)
+		{
+			auto u = new User(ui.newsname->text().toStdString(), ui.newsun->text().toStdString(), ui.newspw->text().toStdString(),
+				ui.newsrolecb->currentIndex()); //admin
+			msgBox.setWindowTitle("User Added");
+			msgBox.setText("Admin Added Successfuly");
+			msgBox.exec();
+		}
+		else if (ui.newsrolecb->currentIndex() == 0)
+		{
+			auto u = new Student(ui.newsname->text().toStdString(), ui.newsun->text().toStdString(),
+				ui.newspw->text().toStdString(), ui.newsyear->text().toInt(), vector<string>(),
+				vector<string>()); //student
+			msgBox.setWindowTitle("User Added");
+			msgBox.setText("Student Added Successfuly");
+			msgBox.exec();
+		}
 	}
 }
 void adminPanel::on_addcbtn_clicked()
 {
-	QMessageBox msgBox;
-	if(ui.newcname->text().isEmpty()||ui.newchrs->text().isEmpty()||ui.newcid->text().isEmpty()||
-		ui.newcstd->text().isEmpty())
+	reply = QMessageBox::question(this, "Add Course", "Add new course?", QMessageBox::Yes | QMessageBox::No);
+	if (reply == QMessageBox::Yes)
 	{
-		msgBox.setWindowTitle("No Data Entered");
-		msgBox.setText("Please Enter Course Data");
+		QMessageBox msgBox;
+		if (ui.newcname->text().isEmpty() || ui.newchrs->text().isEmpty() || ui.newcid->text().isEmpty() ||
+			ui.newcstd->text().isEmpty())
+		{
+			msgBox.setWindowTitle("No Data Entered");
+			msgBox.setText("Please Enter Course Data");
+			msgBox.exec();
+			return;
+		}
+		auto PreReq = CSVFile::ParseLine(ui.newcprc->text().toStdString());
+		auto c = new Course(ui.newcname->text().toStdString(), ui.newcid->text().toStdString(), ui.newcstd->text().toInt(),
+			ui.newchrs->text().toInt(), PreReq);
+		msgBox.setWindowTitle("Course Added");
+		msgBox.setText("Course Added Successfuly");
 		msgBox.exec();
-		return;
 	}
-	auto PreReq = CSVFile::ParseLine(ui.newcprc->text().toStdString());
-	auto c = new Course(ui.newcname->text().toStdString(), ui.newcid->text().toStdString(), ui.newcstd->text().toInt(),
-	                    ui.newchrs->text().toInt(), PreReq);
-	msgBox.setWindowTitle("Course Added");
-	msgBox.setText("Course Added Successfuly");
-	msgBox.exec();
 }
 void adminPanel::on_courseisfinished_clicked()
 {
-	if ((!ui.tab_6->isEnabled())|| S == NULL|| c == NULL)
-		return;
-	S->MoveCourseToFinished(c->Code);
-	on_getuserinfo_clicked();
-	Database::Save();
+	reply = QMessageBox::question(this, "Complete Course", "Move course to student finished courses?", QMessageBox::Yes | QMessageBox::No);
+	if (reply == QMessageBox::Yes)
+	{
+		if ( S == NULL || c == NULL)
+		{
+			
+			QMessageBox msgBox;
+			msgBox.setWindowTitle("No Selected Course");
+			msgBox.setText("There's no selected course, Select a course and try again");
+			msgBox.exec();
+			return;
+		}
+		S->MoveCourseToFinished(c->Code);
+		on_getuserinfo_clicked();
+		Database::Save();
+	}
+}
+void adminPanel::on_logout_clicked()
+{
+	reply = QMessageBox::question(this, "Logout", "Logout?", QMessageBox::Yes | QMessageBox::No);
+	if (reply == QMessageBox::Yes)
+	{
+		admin = NULL;
+		adminPanel::close();
+		auto bk = new CourseManagement();
+		bk->show();
+	}
 }

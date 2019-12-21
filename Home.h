@@ -21,4 +21,6 @@ private:
 private slots:
 	void on_viewmine_clicked();
 	void on_editdata_clicked();
+	void on_logout_clicked();
+	void on_rfrsh_clicked();
 };

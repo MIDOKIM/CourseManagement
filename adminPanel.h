@@ -21,12 +21,13 @@ public:
 	~adminPanel();
  User* admin;
  void LoadCrs(vector<Course*>,QTreeWidget*);
- Course* c;
- Student* S;
+ Course* c=NULL;
+ Student* S=NULL;
  QMessageBox Q;
  void Clear();
  void hidelabels();
  void showlabels();
+ QMessageBox::StandardButton reply;
 
 
 private:
@@ -40,4 +41,6 @@ private slots:
 	void on_getuserinfo_clicked();
 	void on_updateuinfo_clicked();
 	void on_courseisfinished_clicked();
+	void on_logout_clicked();
+
 };

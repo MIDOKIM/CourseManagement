@@ -1,6 +1,7 @@
 #include "editProfile.h"
 #include"Home.h"
 #include"database.h"
+#include"qmessagebox.h"
 editProfile::editProfile(Student* S,QWidget *parent)
 	: QWidget(parent)
 {
@@ -19,9 +20,15 @@ editProfile::~editProfile()
 }
 void editProfile::on_pushButton_clicked()
 {
-	stud->Name = ui.lineEdit->text().toStdString();
-	stud->Password = ui.lineEdit_2->text().toStdString();
-	stud->Academicyear = ui.lineEdit_3->text().toInt();
-	Database::Save();
-	this->close();
+	QMessageBox::StandardButton save;
+	save = QMessageBox::question(this, "Save Info", "Save New Info?", QMessageBox::Yes | QMessageBox::No);
+	if (save == QMessageBox::Yes)
+	{
+		stud->Name = ui.lineEdit->text().toStdString();
+		stud->Password = ui.lineEdit_2->text().toStdString();
+		stud->Academicyear = ui.lineEdit_3->text().toInt();
+		Database::Save();
+		
+		this->close();
+	}
 }
