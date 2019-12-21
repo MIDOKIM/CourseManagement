@@ -88,7 +88,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Admin.cpp" />
     <ClCompile Include="adminPanel.cpp" />
     <ClCompile Include="Course.cpp" />
     <ClCompile Include="CourseManagement.cpp" />
@@ -124,7 +123,6 @@
     <None Include="users.csv" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Admin.h" />
     <ClInclude Include="Course.h" />
     <ClInclude Include="CSVFile.h" />
     <ClInclude Include="database.h" />

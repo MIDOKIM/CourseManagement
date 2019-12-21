@@ -120,7 +120,7 @@ vector<Student*> Student::LoadStudents()
 	return result;
 }
 
-vector<string> Student::GetStudentLines()//farah
+vector<string> Student::GetStudentLines()
 {
 	vector<string> result;
 	for (int i = 0; i < Database::Students.size(); i++)
