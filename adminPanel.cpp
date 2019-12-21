@@ -10,10 +10,10 @@ adminPanel::adminPanel(User* admin,QWidget *parent)
 	LoadCrs(Database::Courses,ui.treeCrss);
 	hidelabels();
 }
-void adminPanel::LoadCrs(vector<Course*> c, QTreeWidget*Tree)
+void adminPanel::LoadCrs(vector<Course*> c, QTreeWidget*Tree,bool AddChilds)
 {
 	Tree->clear();
-	auto itms = Course::CreateTree(c);
+	auto itms = Course::CreateTree(c,AddChilds);
 	for (int i = 0; i < itms.size(); i++)
 		Tree->addTopLevelItem(itms[i]);
 }
@@ -89,7 +89,7 @@ void adminPanel::on_getuserinfo_clicked()
 		}
 		ui.treeWidget_2->clear();
 		{
-			LoadCrs(S->GetCoursesInProgress(), ui.treeWidget_2);
+			LoadCrs(S->GetCoursesInProgress(), ui.treeWidget_2,false);
 		}
 	}
 }

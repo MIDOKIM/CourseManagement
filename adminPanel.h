@@ -20,7 +20,7 @@ public:
 	adminPanel(User* admin,QWidget *parent = Q_NULLPTR);
 	~adminPanel();
  User* admin;
- void LoadCrs(vector<Course*>,QTreeWidget*);
+ void LoadCrs(vector<Course*>,QTreeWidget*,bool AddChilds=true);
  Course* c=NULL;
  Student* S=NULL;
  QMessageBox Q;
